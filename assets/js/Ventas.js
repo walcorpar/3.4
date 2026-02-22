@@ -1,0 +1,50 @@
+const propiedades_venta = [{
+nombre: 'Apartamento de lujo en zona exclusiva',
+src: 'https://fotos.perfil.com/2018/09/21/trim/950/534/nueva-york-09212018-366965.jpg',
+descripcion: 'Este apartamento de lujo está ubicado en una exclusiva zona residencial',
+ubicacion: '123 Luxury Lane,Prestige Suburb, CA 45678',
+habitaciones: 4,
+Banos: 4,
+costo: 5000,
+smoke: false,
+pets: true
+}];
+
+const cargarDatos = document.getElementById("ventas");
+let htmlventa="";
+
+for(let propiedades of propiedades_venta) {
+        htmlventa += `<div class="row">
+        <div class="col-md-4 mb-4">
+            <div class="card">
+              <img src="${propiedades.src}" class="card-img-top" alt="Imagen del departamento"/>
+              <div class="card-body">
+                <h5 class="card-title">
+                  ${propiedades.nombre}
+                </h5>
+                <p class="card-text">
+                  ${propiedades.descripcion}
+                </p>
+                <p>
+                  <i class="fas fa-map-marker-alt"></i>
+                  ${propiedades.ubicacion}
+                </p>
+                <p>
+                  <i class="fas fa-bed"></i> ${propiedades.habitaciones} Habitaciones
+                  <i class="fas fa-bath"></i> ${propiedades.Banos} Baños
+                </p>'
+                <p><i class="fas fa-dollar-sign"></i> ${propiedades.costo}</p>
+                ${propiedades.smoke 
+                    ? `<p class="text-danger"><i class="fas fa-smoking-ban"></i> No se permite fumar</p>`
+                    : `<p class="text-success"><i class="fas fa-smoking"></i> Permitido fumar</p>`
+                }
+                ${propiedades.pets
+                    ? `<p class="text-danger"><i class="fa-solid fa-ban"></i> No se permiten mascotas</p>`
+                    : `<p class="text-success"><i class="fas fa-smoking"></i> Permitido fumar</p>`
+                }
+              </div>
+            </div>
+          </div>`  
+        };
+
+cargarDatos.innerHTML = htmlventa;
